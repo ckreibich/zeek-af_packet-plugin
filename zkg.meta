@@ -2,8 +2,10 @@
 description = This plugin provides native AF_Packet support for Zeek.
 tags = zeek plugin, zeekctl plugin, packet source, af_packet
 plugin_dir = build/Zeek_AF_Packet.tgz
-build_command = ./configure && make
+build_command = ./configure %(CONFIGURE_ARGS)s && make
 test_command = cd tests && btest -d
 depends =
   zkg >=2.0
   zeek >=3.0.0
+user_vars =
+  CONFIGURE_ARGS [] "Additional configure arguments"
